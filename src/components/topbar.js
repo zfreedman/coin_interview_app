@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import "./styles/topbar.css";
+import "./styles/topBar.css";
 
 let TopBar = () => {
   return (
-    <div className="topbar">
+    <div className="topBar">
       Coin
     </div>
   );

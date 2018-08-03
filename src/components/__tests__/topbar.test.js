@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 
-import TopBar from "../topbar";
+import TopBar from "../topBar";
 
 let wrapped;
 beforeEach(() => {
