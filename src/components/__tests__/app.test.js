@@ -1,17 +1,27 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
-import App from "../app";
-import TopBar from "../topbar";
+import App from "components/app";
+import CoinList from "components/coinList";
+import Root from "root";
+import TopBar from "components/topBar";
 
 
-describe("shallow renders", () => {
+describe("existence checks", () => {
   let wrapped;
   beforeEach(() => {
-    wrapped = shallow(<App />);
+    wrapped = mount(
+      <Root>
+        <App testCoins={[]} />
+      </Root>
+    );
   });
 
   it("renders a <TopBar />", () => {
     expect(wrapped.find(TopBar).length).toEqual(1);
+  });
+
+  it("renders a <CoinList />", () => {
+    expect(wrapped.find(CoinList).length).toEqual(1);
   });
 });
