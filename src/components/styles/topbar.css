@@ -1,0 +1,9 @@
+.topBar {
+  border-bottom: 2px solid rgb(34, 44, 49);
+  /* border-top: 2px solid rgb(34, 44, 49); */
+  color: rgb(249, 155, 19);
+  flex: 0 1 auto;
+  font-size: 48px;
+  padding: 10px 0;
+  text-align: center;
+}

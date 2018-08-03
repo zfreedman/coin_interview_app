@@ -1,0 +1,10 @@
+.coinList {
+  align-items: center;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  height: 400px;
+  overflow: scroll;
+  padding: 10px 0;
+  width: 100%;
+}
