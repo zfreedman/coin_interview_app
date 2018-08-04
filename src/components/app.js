@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import * as actions from "actions";
 import CoinList from "components/coinList";
 import TopBar from "components/topBar";
-import './styles/app.css';
+import "./styles/app.css";
 
 class App extends Component {
   constructor(props) {
