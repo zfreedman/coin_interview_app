@@ -1,6 +1,14 @@
+:root {
+  --border-color: rgb(34, 44, 49);
+  --dark-blue: rgb(7, 14, 21);
+  --gold: rgb(249, 155, 19);
+  --grey-blue: rgb(85, 114, 128);
+  --white: rgb(201, 210, 215);
+}
+
 .app {
-  background-color: rgb(7, 14, 21);
-  color: rgb(201, 210, 215);
+  background-color: var(--dark-blue);
+  color: var(--white);
   display: flex;
   height: 100vh;
   flex-direction: column;
