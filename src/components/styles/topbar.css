@@ -1,7 +1,7 @@
 .topBar {
-  border-bottom: 2px solid rgb(34, 44, 49);
+  border-bottom: 2px solid var(--border-color);
   /* border-top: 2px solid rgb(34, 44, 49); */
-  color: rgb(249, 155, 19);
+  color: var(--gold);
   flex: 0 1 auto;
   font-size: 48px;
   padding: 10px 0;

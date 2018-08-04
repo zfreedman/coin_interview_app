@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import CoinListItem from "components/coinListItem";
 import "./styles/coinList.css";
 
 class CoinList extends Component {
@@ -9,11 +10,7 @@ class CoinList extends Component {
       <div className="coinList">
         {
           this.props.coins.map(e => {
-            return (
-              <div key={e["coin_name"]}>
-                {e["coin_name"]}
-              </div>
-            );
+            return <CoinListItem item={e} />
           })
         }
       </div>
