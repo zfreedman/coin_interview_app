@@ -4,6 +4,6 @@
   color: var(--gold);
   flex: 0 1 auto;
   font-size: 48px;
-  padding: 10px 0;
-  text-align: center;
+  padding: 10px;
+  text-align: right;
 }
