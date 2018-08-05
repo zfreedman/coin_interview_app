@@ -28,11 +28,60 @@ class CoinListItem extends Component {
 
   handleClick = () => this.props.handleClick(this.props.item.id);
 
+  renderLinks = () => {
+    let link_keys = [
+      "website", "source_code", "block_explorer", "twitter", "blog",
+      "telegram", "reddit", "white_paper"
+    ];
+
+    let links = {};
+    link_keys.forEach(e => links[e] = this.props.item[e]);
+
+    // iterate over key value pairs, key is label, value is url
+    return Object.entries(links).map(kvp => {
+      return (
+        <div>
+          <a href={kvp[1]} target="_blank" key={kvp[0]}>
+            {
+              kvp[0].split("_").map(str => {
+                return str.charAt(0).toUpperCase() + str.substr(1)
+              }).join(" ")
+            }
+          </a>
+        </div>
+      );
+    });
+  };
+
   renderListItemActive = () => {
     let e = this.props.item;
     return (
       <div className="coinListItemActive">
-        Active
+        <div className="coinListItemName">
+          <button onClick={this.handleClick}>
+            {e["coin_name"]}
+          </button>
+        </div>
+
+        <div className="coinListItemActiveMiddle">
+          <div className="coinListItemActiveLinks">
+            {this.renderLinks()}
+          </div>
+          {
+            e["summary"]
+          }
+        </div>
+
+        <div className="coinListItemTicker">
+          {
+            <a
+              href={`${this.tickerURL}${e["ticker"]}`}
+              target="_blank"
+            >
+              {e["ticker"]}
+            </a>
+          }
+        </div>
       </div>
     );
   };

@@ -21,6 +21,39 @@ a:hover {
   border-bottom: none;
 }
 
+.coinListItemActive {
+  background-color: rgba(34,44,49,.5);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  min-height: fit-content;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+.coinListItemActiveMiddle {
+  padding: 10px 0;
+  width: 100%;
+}
+
+.coinListItemActiveLinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.coinListItemActiveLinks > div {
+  align-items: center;
+  background-color: var(--dark-blue);
+  border: 1px solid var(--border-color);
+  color: var(--grey-blue);
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  padding: 5px 2px;
+  width: 150px;
+}
+
 .coinListItemContainer {
   display: flex;
   flex: 1 1 auto;
