@@ -53,10 +53,10 @@ a:hover {
 }
 .coinListItemName > button:hover {
   cursor: pointer;
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 .coinListItemName > button:active {
-  transform: scale(.95);
+  transform: scale(.98);
 }
 
 .coinListItemTicker {

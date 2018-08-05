@@ -21,13 +21,29 @@ class CoinListItem extends Component {
   }
 
   render() {
-    let e = this.props.item;
+    return this.props.activeItem
+      ? this.renderListItemActive()
+      : this.renderListItem();
+  }
 
+  handleClick = () => this.props.handleClick(this.props.item.id);
+
+  renderListItemActive = () => {
+    let e = this.props.item;
+    return (
+      <div className="coinListItemActive">
+        Active
+      </div>
+    );
+  };
+
+  renderListItem = () => {
+    let e = this.props.item;
     return (
       <div className="coinListItem">
         <div className="coinListItemContainer">
           <div className="coinListItemName">
-            <button>
+            <button onClick={this.handleClick}>
               {e["coin_name"]}
             </button>
           </div>
@@ -53,7 +69,7 @@ class CoinListItem extends Component {
         </div>
       </div>
     );
-  }
+  };
 }
 
 export default CoinListItem;
