@@ -1,0 +1,70 @@
+:root {
+}
+
+a:link, a:visited {
+  color: inherit;
+  text-decoration: inherit;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.coinListItem {
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  min-height: 75px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+.coinListItem:last-child {
+  border-bottom: none;
+}
+
+.coinListItemContainer {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.coinListItemInfo {
+  align-items: center;
+  /* border-left: 1px solid var(--border-color); */
+  display: flex;
+  padding-left: 10px;
+  width: 100%;
+}
+
+.coinListItemName {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-width: 200px;
+  width: 200px;
+}
+.coinListItemName > button {
+  border: 1px solid var(--grey-blue);
+  background-color: var(--dark-blue);
+  color: var(--gold);
+  font-size: 18px;
+  height: 50px;
+  outline: none;
+  /* transition: 0.1; */
+  width: 150px;
+}
+.coinListItemName > button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.coinListItemName > button:active {
+  transform: scale(.95);
+}
+
+.coinListItemTicker {
+  align-items: center;
+  color: var(--gold);
+  display: flex;
+  font-size: 24px;
+  justify-content: center;
+  min-width: 100px;
+  width: 100px;
+}
