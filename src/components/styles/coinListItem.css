@@ -9,6 +9,22 @@ a:hover {
   text-decoration: underline;
 }
 
+button {
+  border: 1px solid var(--grey-blue);
+  background-color: var(--dark-blue);
+  color: var(--gold);
+  font-size: 18px;
+  outline: none;
+  /* transition: 0.1; */
+}
+button:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+}
+button:active {
+  transform: scale(.98);
+}
+
 .coinListItem {
   border-bottom: 1px solid var(--border-color);
   display: flex;
@@ -24,15 +40,36 @@ a:hover {
 .coinListItemActive {
   background-color: rgba(34,44,49,.5);
   border-bottom: 1px solid var(--border-color);
-  display: flex;
+  /* display: flex; */
   min-height: fit-content;
   padding-bottom: 5px;
   padding-left: 10px;
   padding-top: 5px;
+  position: relative;
 }
 
-.coinListItemActiveMiddle {
-  padding: 10px 0;
+.coinListItemActiveButtonContainer {
+  clear: both;
+  float: right;
+  position: absolute;
+  right: 10px;
+}
+.coinListItemActiveButtonContainer > button {
+  background-color: var(--dark-blue);
+  border-color: var(--border-color);
+  color: var(--grey-blue);
+  height: 50px;
+  width: 50px;
+}
+
+.coinListItemActiveContainer {
+  display: flex;
+}
+
+.coinListItemActiveInvestorTitle {
+  color: var(--grey-blue);
+  font-size: 18px;
+  text-align: center;
   width: 100%;
 }
 
@@ -40,7 +77,6 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 10px;
 }
 .coinListItemActiveLinks > div {
   align-items: center;
@@ -52,6 +88,22 @@ a:hover {
   margin-top: 5px;
   padding: 5px 2px;
   width: 150px;
+}
+
+.coinListItemActiveMiddle {
+  padding: 10px 0;
+  width: 100%;
+}
+.coinListItemActiveMiddle > div {
+  border-bottom: 1px solid var(--border-color);
+  padding: 10px 0;
+}
+.coinListItemActiveMiddle > div:last-child {
+  border-bottom: none;
+}
+
+.coinListItemActiveStatTitle {
+  color: var(--grey-blue);
 }
 
 .coinListItemContainer {
@@ -75,21 +127,12 @@ a:hover {
   width: 200px;
 }
 .coinListItemName > button {
-  border: 1px solid var(--grey-blue);
-  background-color: var(--dark-blue);
-  color: var(--gold);
-  font-size: 18px;
   height: 50px;
-  outline: none;
-  /* transition: 0.1; */
   width: 150px;
 }
 .coinListItemName > button:hover {
-  cursor: pointer;
-  transform: scale(1.02);
 }
 .coinListItemName > button:active {
-  transform: scale(.98);
 }
 
 .coinListItemTicker {

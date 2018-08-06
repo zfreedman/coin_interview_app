@@ -7,6 +7,13 @@ import CoinList from "components/coinList";
 import TopBar from "components/topBar";
 import "./styles/app.css";
 
+// font awesome
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faSave, faTimes } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faEdit, faSave, faTimes);
+
 class App extends Component {
   constructor(props) {
     super(props);
