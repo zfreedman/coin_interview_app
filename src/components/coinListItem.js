@@ -31,7 +31,67 @@ class CoinListItem extends Component {
       : this.renderListItem();
   }
 
-  handleClick = () => this.props.handleClick(this.props.item.id);
+  handleCancelClick = () => {
+    this.setState({editing: false});
+    console.log("editing: " + this.state.editing);
+  };
+
+  handleCoinClick = () => this.props.handleClick(this.props.item.id);
+
+  handleEditClick = () => {
+    this.setState({editing: true});
+    console.log("editing: " + this.state.editing);
+  };
+
+  handleSaveClick = () => {
+    console.log("dispatch save action here");
+    this.setState({editing: false});
+    console.log("editing: " + this.state.editing);
+  };
+
+  renderControlButtons = () => {
+    console.log("called");
+    // theres a bit of code duplication here with the
+    // outer enclosing tag, but it's not worth refactoring into a map
+    // to avoid the "outer enclosing div JSX" error right now
+    // return <h1>hello</h1>
+    return (
+      <div className="coinListItemActiveButtonContainer">
+        {
+          !this.state.editing
+          ? (
+            <button
+              onClick={this.handleEditClick}
+            >
+              <FontAwesomeIcon icon="edit" />
+            </button>
+          )
+          : (
+            [
+              ["times", this.handleCancelClick],
+              ["save", this.handleSaveClick]
+            ].map(tup => {
+              return (
+                <button onClick={tup[1]} key={tup[0]}>
+                  <FontAwesomeIcon icon={tup[0]} />
+                </button>
+              );
+            })
+          )
+        }
+      </div>
+    );
+  };
+
+  renderInvestors = () => {
+    let investors = this.props.item["active_investors"].split(", ");
+
+    return investors.map(e => {
+      return (
+        <div key={e}>{e}</div>
+      );
+    });
+  };
 
   renderLinks = () => {
     let link_keys = [
@@ -56,26 +116,15 @@ class CoinListItem extends Component {
     });
   };
 
-  renderInvestors = () => {
-    let investors = this.props.item["active_investors"].split(", ");
-
-    return investors.map(e => {
-      return (
-        <div key={e}>{e}</div>
-      );
-    });
-  };
-
   renderListItemActive = () => {
     let e = this.props.item;
     return (
       <div className="coinListItemActive">
-        <button className="coinListItemActiveEdit">
-          <FontAwesomeIcon icon="edit" />
-        </button>
+        {this.renderControlButtons()}
+
         <div className="coinListItemActiveContainer">
           <div className="coinListItemName">
-            <button onClick={this.handleClick}>
+            <button onClick={this.handleCoinClick}>
               {e["coin_name"]}
             </button>
           </div>
@@ -127,7 +176,7 @@ class CoinListItem extends Component {
       <div className="coinListItem">
         <div className="coinListItemContainer">
           <div className="coinListItemName">
-            <button onClick={this.handleClick}>
+            <button onClick={this.handleCoinClick}>
               {e["coin_name"]}
             </button>
           </div>

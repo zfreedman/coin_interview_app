@@ -45,21 +45,25 @@ button:active {
   padding-bottom: 5px;
   padding-left: 10px;
   padding-top: 5px;
+  position: relative;
+}
+
+.coinListItemActiveButtonContainer {
+  clear: both;
+  float: right;
+  position: absolute;
+  right: 10px;
+}
+.coinListItemActiveButtonContainer > button {
+  background-color: var(--dark-blue);
+  border-color: var(--border-color);
+  color: var(--grey-blue);
+  height: 50px;
+  width: 50px;
 }
 
 .coinListItemActiveContainer {
   display: flex;
-}
-
-.coinListItemActiveEdit {
-  background-color: var(--dark-blue);
-  border-color: var(--border-color);
-  color: var(--grey-blue);
-  float: right;
-  height: 50px;
-  position: relative;
-  right: 10px;
-  width: 50px;
 }
 
 .coinListItemActiveInvestorTitle {
