@@ -23,6 +23,7 @@ class CoinList extends Component {
                 item={e}
                 activeItem={this.state.activeID === e.id}
                 handleClick={this.handleListItemClick}
+                key={e.ticker}
               />
             );
           })

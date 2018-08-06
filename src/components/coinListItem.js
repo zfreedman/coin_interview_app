@@ -40,15 +40,23 @@ class CoinListItem extends Component {
     // iterate over key value pairs, key is label, value is url
     return Object.entries(links).map(kvp => {
       return (
-        <div>
-          <a href={kvp[1]} target="_blank" key={kvp[0]}>
+        <div key={kvp[0]}>
+          <a href={kvp[1]} target="_blank">
             {
-              kvp[0].split("_").map(str => {
-                return str.charAt(0).toUpperCase() + str.substr(1)
-              }).join(" ")
+              this.titleCaseStr(kvp[0])
             }
           </a>
         </div>
+      );
+    });
+  };
+
+  renderInvestors = () => {
+    let investors = this.props.item["active_investors"].split(", ");
+
+    return investors.map(e => {
+      return (
+        <div key={e}>{e}</div>
       );
     });
   };
@@ -67,8 +75,25 @@ class CoinListItem extends Component {
           <div className="coinListItemActiveLinks">
             {this.renderLinks()}
           </div>
+          <div>
+            {
+              e["summary"]
+            }
+          </div>
+          <div className="coinListItemActiveStats">
+            {this.renderStats()}
+          </div>
           {
-            e["summary"]
+            this.props.item["active_investors"] === "N/A"
+              ? ""
+              : (
+                  <div className="coinListItemActiveInvestors">
+                    <div className="coinListItemActiveInvestorTitle">
+                      Investors
+                    </div>
+                    {this.renderInvestors()}
+                  </div>
+                )
           }
         </div>
 
@@ -118,6 +143,34 @@ class CoinListItem extends Component {
         </div>
       </div>
     );
+  };
+
+  renderStats = () => {
+    let stat_keys = [
+      "circulation", "supply", "launch_date", "amount_raised", "minable"
+    ];
+
+    let stats = {};
+    stat_keys.forEach(e => stats[e] = this.props.item[e]);
+
+    return Object.entries(stats).map(kvp => {
+      return (
+        <div key={kvp[0]}>
+          <span className="coinListItemActiveStatTitle">
+            {`${this.titleCaseStr(kvp[0])}:`}
+          </span>
+          {
+            ` ${kvp[1]}`
+          }
+        </div>
+      );
+    });
+  };
+
+  titleCaseStr = (str) => {
+    return str.split("_").map(el => {
+      return el.charAt(0).toUpperCase() + el.substr(1)
+    }).join(" ")
   };
 }
 
