@@ -1,25 +1,18 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { connect } from "react-redux";
 
+import { editCoin } from "actions";
+import CoinListItemEdit from "components/coinListItemEdit";
 import "./styles/coinListItem.css";
 
 class CoinListItem extends Component {
-  // main url: website
-  /*
-  other urls:
-    block_explorer
-    twitter
-    blog
-    telegram
-    reddit
-    white_paper
-  */
-
   constructor(props){
     super(props);
 
     this.state = {
-      editing: false
+      editing: false,
+      editValue: ""
     };
 
     this.tickerURL = "https://coinmarketcap.com/currencies/";
@@ -43,18 +36,27 @@ class CoinListItem extends Component {
     console.log("editing: " + this.state.editing);
   };
 
+  handleEditChange = editValue => {
+    this.setState({editValue});
+  };
+
   handleSaveClick = () => {
     console.log("dispatch save action here");
-    this.setState({editing: false});
+    this.props.editCoin(
+      this.props.item.id,
+      {
+        "summary": this.state.editValue
+      }
+    );
+    this.setState({
+      editValue: "",
+      editing: false
+    });
+
     console.log("editing: " + this.state.editing);
   };
 
   renderControlButtons = () => {
-    console.log("called");
-    // theres a bit of code duplication here with the
-    // outer enclosing tag, but it's not worth refactoring into a map
-    // to avoid the "outer enclosing div JSX" error right now
-    // return <h1>hello</h1>
     return (
       <div className="coinListItemActiveButtonContainer">
         {
@@ -133,9 +135,14 @@ class CoinListItem extends Component {
             <div className="coinListItemActiveLinks">
               {this.renderLinks()}
             </div>
-            <div>
+            <div className="coinListItemActiveSummary">
               {
-                e["summary"]
+                !this.state.editing
+                  ? e["summary"]
+                  : <CoinListItemEdit
+                      handleChange={this.handleEditChange}
+                      value={e["summary"]}
+                    />
               }
             </div>
             <div className="coinListItemActiveStats">
@@ -233,4 +240,10 @@ class CoinListItem extends Component {
   };
 }
 
-export default CoinListItem;
+const mapDispatchToProps = dispatch => {
+  return {
+    editCoin: (coinID, editObj) => dispatch(editCoin(coinID, editObj))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(CoinListItem);
