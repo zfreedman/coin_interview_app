@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./styles/coinListItem.css";
 
@@ -16,6 +17,10 @@ class CoinListItem extends Component {
 
   constructor(props){
     super(props);
+
+    this.state = {
+      editing: false
+    };
 
     this.tickerURL = "https://coinmarketcap.com/currencies/";
   }
@@ -65,47 +70,52 @@ class CoinListItem extends Component {
     let e = this.props.item;
     return (
       <div className="coinListItemActive">
-        <div className="coinListItemName">
-          <button onClick={this.handleClick}>
-            {e["coin_name"]}
-          </button>
-        </div>
-
-        <div className="coinListItemActiveMiddle">
-          <div className="coinListItemActiveLinks">
-            {this.renderLinks()}
+        <button className="coinListItemActiveEdit">
+          <FontAwesomeIcon icon="edit" />
+        </button>
+        <div className="coinListItemActiveContainer">
+          <div className="coinListItemName">
+            <button onClick={this.handleClick}>
+              {e["coin_name"]}
+            </button>
           </div>
-          <div>
+
+          <div className="coinListItemActiveMiddle">
+            <div className="coinListItemActiveLinks">
+              {this.renderLinks()}
+            </div>
+            <div>
+              {
+                e["summary"]
+              }
+            </div>
+            <div className="coinListItemActiveStats">
+              {this.renderStats()}
+            </div>
             {
-              e["summary"]
+              this.props.item["active_investors"] === "N/A"
+                ? ""
+                : (
+                    <div className="coinListItemActiveInvestors">
+                      <div className="coinListItemActiveInvestorTitle">
+                        Investors
+                      </div>
+                      {this.renderInvestors()}
+                    </div>
+                  )
             }
           </div>
-          <div className="coinListItemActiveStats">
-            {this.renderStats()}
-          </div>
-          {
-            this.props.item["active_investors"] === "N/A"
-              ? ""
-              : (
-                  <div className="coinListItemActiveInvestors">
-                    <div className="coinListItemActiveInvestorTitle">
-                      Investors
-                    </div>
-                    {this.renderInvestors()}
-                  </div>
-                )
-          }
-        </div>
 
-        <div className="coinListItemTicker">
-          {
-            <a
-              href={`${this.tickerURL}${e["ticker"]}`}
-              target="_blank"
-            >
-              {e["ticker"]}
-            </a>
-          }
+          <div className="coinListItemTicker">
+            {
+              <a
+                href={`${this.tickerURL}${e["ticker"]}`}
+                target="_blank"
+              >
+                {e["ticker"]}
+              </a>
+            }
+          </div>
         </div>
       </div>
     );
