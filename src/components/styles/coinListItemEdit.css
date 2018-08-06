@@ -1,0 +1,10 @@
+textarea {
+  background-color: var(--dark-blue) !important;
+  border-color: var(--border-color);
+  color: var(--grey-blue);
+  font-size: inherit;
+  height: 150px;
+  overflow-y: auto;
+  resize: none;
+  width: 100%;
+}
