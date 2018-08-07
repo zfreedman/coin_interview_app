@@ -10,26 +10,34 @@ import "./styles/app.css";
 // font awesome
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faSave, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faPlus, faSave, faTimes } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faEdit, faSave, faTimes);
+library.add(faEdit, faPlus, faSave, faTimes);
 
 class App extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      addingCoin: false
+    };
   }
 
   render() {
     return (
       <div className="app">
-        <TopBar />
-        <CoinList />
+        <TopBar handleAddCoinClick={this.handleAddCoinClick} />
+        <CoinList addingCoin={this.state.addingCoin} />
       </div>
     );
   }
 
   componentWillMount() {
     this.requestCoinData();
+  }
+
+  handleAddCoinClick = () => {
+    this.setState({addingCoin: true});
   }
 
   requestCoinData = () => {

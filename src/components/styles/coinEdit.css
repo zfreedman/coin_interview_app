@@ -1,0 +1,75 @@
+.coinEdit {
+  background-color: rgba(34,44,49,.5);
+  border-bottom: 1px solid var(--border-color);
+  /* display: flex; */
+  min-height: fit-content;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-top: 5px;
+  position: relative;
+}
+
+.coinEditButtonContainer {
+  clear: both;
+  float: right;
+  position: absolute;
+  right: 10px;
+}
+.coinEditButtonContainer > button {
+  background-color: var(--dark-blue);
+  border-color: var(--border-color);
+  color: var(--grey-blue);
+  height: 50px;
+  width: 50px;
+}
+
+.coinEditContainer {
+  display: flex;
+}
+
+.coinEditInvestorTitle {
+  color: var(--grey-blue);
+  font-size: 18px;
+  text-align: center;
+  width: 100%;
+}
+
+.coinEditLinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.coinEditLinks > div {
+  align-items: center;
+  background-color: var(--dark-blue);
+  border: 1px solid var(--border-color);
+  color: var(--grey-blue);
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  padding: 5px 2px;
+  width: 150px;
+}
+
+.coinEditMiddle {
+  padding: 10px 0;
+  width: 100%;
+}
+.coinEditMiddle > div {
+  border-bottom: 1px solid var(--border-color);
+  padding: 10px 0;
+}
+.coinEditMiddle > div:last-child {
+  border-bottom: none;
+}
+
+.coinEditStatTitle {
+  color: var(--grey-blue);
+}
+
+.coinEditSummary > form > {
+  color: var(--grey-blue);
+}
+.coinEditSummary textarea {
+  background-color: var(-dark-blue) !important;
+}
