@@ -26,10 +26,14 @@ class CoinListItem extends Component {
 
   handleCancelClick = () => {
     this.setState({editing: false});
-    console.log("editing: " + this.state.editing);
   };
 
-  handleCoinClick = () => this.props.handleClick(this.props.item.id);
+  handleCoinClick = () => {
+    // handle when a coin is open for editing but hasn't been saved
+    // (about to be possibly closed, and doesnt matter if not open already)
+    this.setState({editing: false});
+    this.props.handleClick(this.props.item.id);
+  }
 
   handleEditClick = () => {
     this.setState({editing: true});
