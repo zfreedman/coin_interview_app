@@ -19,7 +19,6 @@ class TopBar extends Component {
           <div className="futureSearchBar">
           </div>
           <button
-
             onClick={this.handleAddCoinClick}
           >
             <FontAwesomeIcon icon="plus" />
@@ -29,7 +28,10 @@ class TopBar extends Component {
     );
   }
 
-  handleAddCoinClick() {
+  handleAddCoinClick = () => {
+    // app state change
+    this.props.handleAddCoinClick();
+
     // animation
     let target = ".coinList";
     let targetPos = document.getElementsByClassName(
