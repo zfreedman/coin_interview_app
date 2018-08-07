@@ -37,7 +37,6 @@ class CoinListItem extends Component {
 
   handleEditClick = () => {
     this.setState({editing: true});
-    console.log("editing: " + this.state.editing);
   };
 
   handleEditChange = editValue => {
@@ -45,7 +44,6 @@ class CoinListItem extends Component {
   };
 
   handleSaveClick = () => {
-    console.log("dispatch save action here");
     this.props.editCoin(
       this.props.item.id,
       {
@@ -56,8 +54,6 @@ class CoinListItem extends Component {
       editValue: "",
       editing: false
     });
-
-    console.log("editing: " + this.state.editing);
   };
 
   renderControlButtons = () => {

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import AddCoin from "components/addCoin";
+// import CoinEdit from "components/coinEdit";
 import CoinListItem from "components/coinListItem";
 import "./styles/coinList.css";
 
@@ -30,9 +30,9 @@ class CoinList extends Component {
           })
         }
         {
-          this.props.addingCoin
-            ? <AddCoin />
-            : ""
+          // this.props.addingCoin
+          //   ? <CoinEdit />
+          //   : ""
         }
       </div>
     );
