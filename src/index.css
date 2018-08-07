@@ -1,5 +1,14 @@
+:root {
+  --border-color: rgb(34, 44, 49);
+  --dark-blue: rgb(7, 14, 21);
+  --gold: rgb(249, 155, 19);
+  --grey-blue: rgb(85, 114, 128);
+  --white: rgb(201, 210, 215);
+}
+
 body {
+  background-color: var(--dark-blue);
+  font-family: sans-serif;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
 }

@@ -10,9 +10,9 @@ import "./styles/app.css";
 // font awesome
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faSave, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faPlus, faSave, faTimes } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faEdit, faSave, faTimes);
+library.add(faEdit, faPlus, faSave, faTimes);
 
 class App extends Component {
   constructor(props) {

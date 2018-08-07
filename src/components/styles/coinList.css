@@ -1,6 +1,6 @@
 .coinList {
   display: flex;
-  /* flex: 1 1 auto; */
+  flex: 1 1 auto;
   flex-direction: column;
   overflow: scroll;
   width: 100%;
